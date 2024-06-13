@@ -1,6 +1,7 @@
 from unittest import TestCase
 
 from game import Game
+from game_result import GameResult
 
 
 class TestGame(TestCase):
@@ -21,3 +22,12 @@ class TestGame(TestCase):
             self.fail()
         except TypeError:
             pass
+
+    def test_solve_result_if_matched_number(self):
+        self.game.question = "123"
+        result: GameResult = self.game.guess("123")
+
+        self.assertIsNotNone(result)
+        self.assertTrue(result.solved)
+        self.assertEqual(3, result.strikes)
+        self.assertEqual(0, result.balls)
