@@ -7,7 +7,8 @@ class Game:
 
     def guess(self, num) -> GameResult:
         self.assert_invalid_value(num)
-        return GameResult(True, 3, 0)
+        if num == self.question:
+            return GameResult(True, 3, 0)
 
     def assert_invalid_value(self, num):
         if num is None or len(num) != 3:
