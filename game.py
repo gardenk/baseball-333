@@ -6,3 +6,6 @@ class Game:
         for N in num:
             if not ord('0') <= ord(N) <= ord('9'):
                 raise TypeError
+
+        if len(set(list(num))) < 3:
+            raise TypeError

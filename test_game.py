@@ -13,6 +13,7 @@ class TestGame(TestCase):
         self.assert_invalid_argument("12")
         self.assert_invalid_argument("1234")
         self.assert_invalid_argument("12s")
+        self.assert_invalid_argument("121")
 
     def assert_invalid_argument(self, guessNum):
         try:
