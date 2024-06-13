@@ -1,2 +1,4 @@
 class Game:
-    pass
+    def guess(self, num):
+        if num is None:
+            raise TypeError
