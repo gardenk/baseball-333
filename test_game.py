@@ -12,4 +12,7 @@ class TestGame(TestCase):
         with self.assertRaises(TypeError):
             self.game.guess(None)
 
+    def test_exception_unmatched_input_length(self):
+        with self.assertRaises(TypeError):
+            self.game.guess("12")
 
