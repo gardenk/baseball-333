@@ -9,6 +9,8 @@ class Game:
         self.assert_invalid_value(num)
         if num == self.question:
             return GameResult(True, 3, 0)
+        else:
+            return GameResult(False, 0, 0)
 
     def assert_invalid_value(self, num):
         if num is None or len(num) != 3:
