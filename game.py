@@ -10,7 +10,14 @@ class Game:
         if num == self.question:
             return GameResult(True, 3, 0)
         else:
-            return GameResult(False, 0, 0)
+            strikes = 0
+            for i in range(len(self.question)):
+                char = num[i]
+                idx = self.question.find(char)
+                if idx == i:
+                    strikes += 1
+
+            return GameResult(False, strikes, 0)
 
     def assert_invalid_value(self, num):
         if num is None or len(num) != 3:
