@@ -10,15 +10,17 @@ class Game:
         if num == self.question:
             return GameResult(True, 3, 0)
         else:
-            strikes = 0
-            balls = 0
-            for i in range(len(self.question)):
-                if self.question.find(num[i]) == i:
-                    strikes += 1
-                elif self.question.find(num[i]) > -1:
-                    balls += 1
+            return self.get_unsolved_result(num)
 
-            return GameResult(False, strikes, balls)
+    def get_unsolved_result(self, num):
+        strikes = 0
+        balls = 0
+        for i in range(len(self.question)):
+            if self.question.find(num[i]) == i:
+                strikes += 1
+            elif self.question.find(num[i]) > -1:
+                balls += 1
+        return GameResult(False, strikes, balls)
 
     def assert_invalid_value(self, num):
         if num is None or len(num) != 3:
